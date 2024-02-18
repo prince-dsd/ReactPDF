@@ -1,0 +1,53 @@
+#pdfSearchbar {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 20px;
+  left: 200px;
+  width: 300px;
+  max-height: 36px;
+  border-radius: 3px;
+  background-color: #262b2f;
+  z-index: 9999;
+  padding: 10px;
+}
+#pdfSearchbar input {
+  font-size: 0.813rem;
+  background-color: #262b2f;
+  border: none;
+  color: white;
+}
+#pdfSearchbar input::placeholder {
+  color: rgba(151, 161, 182, 0.5);
+}
+#pdfSearchbar input:focus {
+  outline: none !important;
+  border: none;
+}
+#pdfSearchbar .search-info {
+  font-size: 0.813rem;
+  display: flex;
+  align-items: center;
+}
+#pdfSearchbar .search-info .search-status {
+  display: flex;
+  align-items: center;
+  color: rgba(151, 161, 182, 0.5);
+}
+#pdfSearchbar .search-info .search-bar-ico {
+  cursor: pointer;
+  margin-left: 4px;
+}
+#pdfSearchbar .search-info .search-bar-ico.disabled {
+  cursor: default;
+}
+#pdfSearchbar .search-info .search-bar-ico.disabled path {
+  fill-opacity: 0.29;
+}
+
+@media only screen and (max-width: 600px) {
+  #pdfSearchbar {
+    left: 0;
+  }
+}

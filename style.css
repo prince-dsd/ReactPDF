@@ -1,0 +1,6 @@
+#viewer-container {
+  background-color: #0a0502 !important;
+}
+.pdf-thumbnail-bar {
+  z-index: 5;
+}

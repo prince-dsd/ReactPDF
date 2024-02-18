@@ -1,0 +1,23 @@
+.thumbnail {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.thumbnail img,
+.thumbnail .placeholder {
+  border: solid 3px white;
+  width: 100%;
+  cursor: pointer;
+}
+.thumbnail img:hover,
+.thumbnail .placeholder:hover,
+.thumbnail img.focused,
+.thumbnail .placeholder.focused {
+  border: solid 3px #980036;
+}
+.thumbnail .page-number {
+  margin-top: 4px;
+  color: white;
+}

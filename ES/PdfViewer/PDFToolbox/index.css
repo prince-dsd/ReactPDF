@@ -1,0 +1,94 @@
+.toolbox-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.toolbox-container .toolbox-wrapper {
+  position: absolute;
+  top: calc(100vh - 120px);
+  left: calc(50% - 208px);
+}
+.toolbox-container .toolbox-wrapper .toolbox {
+  position: fixed;
+  background-color: #262b2f;
+  z-index: 9999;
+  bottom: 28px;
+  max-height: 48px;
+  width: 416px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  border-radius: 3px;
+}
+.toolbox-container .toolbox-wrapper .toolbox svg {
+  cursor: pointer;
+}
+.toolbox-container .toolbox-wrapper .toolbox svg.disabled {
+  cursor: default;
+}
+.toolbox-container .toolbox-wrapper .toolbox svg.disabled path {
+  fill-opacity: 0.3;
+}
+.toolbox-container .toolbox-wrapper .toolbox .toolbox-action {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.toolbox-container .toolbox-wrapper .toolbox .page-navigation {
+  display: flex;
+  font-size: 13px;
+}
+.toolbox-container .toolbox-wrapper .toolbox .page-navigation .page-up {
+  margin-right: 20px;
+}
+.toolbox-container .toolbox-wrapper .toolbox .page-navigation .page-down {
+  margin-left: 20px;
+}
+.toolbox-container .toolbox-wrapper .toolbox .page-navigation .pageNumber {
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+  overflow: visible;
+  border-bottom: white 1px solid;
+  /* Firefox */
+}
+.toolbox-container .toolbox-wrapper .toolbox .page-navigation .pageNumber.input-focused {
+  border-bottom: none;
+}
+.toolbox-container .toolbox-wrapper .toolbox .page-navigation .pageNumber input {
+  font-size: 13px;
+  text-align: center;
+  width: 20px;
+  height: 15px;
+  font-weight: 500;
+  color: white;
+  border: none;
+  outline: none;
+  background-color: #262b2f;
+}
+.toolbox-container .toolbox-wrapper .toolbox .page-navigation .pageNumber input:focus {
+  border: 1px solid #d0dae3;
+  border-radius: 2px;
+  height: 20px;
+}
+.toolbox-container .toolbox-wrapper .toolbox .page-navigation .pageNumber input::-webkit-outer-spin-button,
+.toolbox-container .toolbox-wrapper .toolbox .page-navigation .pageNumber input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.toolbox-container .toolbox-wrapper .toolbox .page-navigation .pageNumber input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+@media only screen and (max-width: 600px) {
+  .toolbox-container .toolbox-wrapper .toolbox {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+  }
+}
