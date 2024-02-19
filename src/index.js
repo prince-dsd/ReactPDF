@@ -1,41 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import './style.css';
-import ReactGA from 'react-ga';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-import ReactPDF from './ReactPdf';
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-const ReportPDF = (props) => {
-  const [reportLink, setReportLink] = useState(null);
-  const { search } = props.location;
-
-  const onPageScroll = (page) => {
-    if (
-      document.querySelectorAll('.pdf-thumbnail-bar> div').length > 0 &&
-      document.querySelectorAll('.pdf-thumbnail-bar> div')[page - 1]
-    )
-      document.querySelectorAll('.pdf-thumbnail-bar> div')[page - 1].scrollIntoView({ block: 'center' });
-  };
-
-  const initialize = () => {
-    const report = new URLSearchParams(search).get('report');
-    setReportLink(report);
-  };
-
-
-  useEffect(() => {
-    initialize();
-
-  }, []);
-  return (
-    <ReactPDF
-      url={reportLink}
-      showToolbox
-      showProgressBar
-      showThumbnailSidebar
-      onChangePage={onPageScroll}
-      filename={props.match.params.name}
-    />
-  );
-};
-
-export default ReportPDF;
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

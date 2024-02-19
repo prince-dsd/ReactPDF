@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import './style.css';
+import ReactGA from 'react-ga';
 
-function App() {
+import ReactPDF from './ReactPdf';
+
+const ReportPDF = (props) => {
+  const [reportLink, setReportLink] = useState(null);
+  const { search } = props.location;
+
+  const onPageScroll = (page) => {
+    if (
+      document.querySelectorAll('.pdf-thumbnail-bar> div').length > 0 &&
+      document.querySelectorAll('.pdf-thumbnail-bar> div')[page - 1]
+    )
+      document.querySelectorAll('.pdf-thumbnail-bar> div')[page - 1].scrollIntoView({ block: 'center' });
+  };
+
+  const initialize = () => {
+    const report = new URLSearchParams(search).get('report');
+    setReportLink(report);
+  };
+
+
+  useEffect(() => {
+    initialize();
+
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ReactPDF
+      url={reportLink}
+      showToolbox
+      showProgressBar
+      showThumbnailSidebar
+      onChangePage={onPageScroll}
+      filename={props.match.params.name}
+    />
   );
-}
+};
 
-export default App;
+export default ReportPDF;
