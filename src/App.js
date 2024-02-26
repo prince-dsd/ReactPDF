@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
-import ReactGA from 'react-ga';
 
 import ReactPDF from './ReactPdf';
 
